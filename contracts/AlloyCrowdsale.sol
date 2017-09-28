@@ -36,14 +36,6 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
         slabs[2]= BonusSlab({starts: _startTime + 7 minutes, ends: _startTime + 14 minutes, rate: _rate.add(_rate.div(40))});
     }
 
-
-    /**
-     * Lets the owner set the Hardcap for the sale based on the balance from the previous sale
-     */
-    function setHardCap(uint256 _cap) public onlyOwner {
-        cap = _cap;
-    }
-
     /**
      * Lets the owner update bonus slabs
      */

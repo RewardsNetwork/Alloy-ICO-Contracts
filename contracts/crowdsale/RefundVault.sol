@@ -28,19 +28,19 @@ contract RefundVault is Ownable {
     state = State.Active;
   }
 
-  function deposit(address investor) public onlyOwner payable {
+  function deposit(address investor) onlyOwner public payable {
     require(state == State.Active);
     deposited[investor] = deposited[investor].add(msg.value);
   }
 
-  function close() public onlyOwner {
+  function close() onlyOwner public {
     require(state == State.Active);
     state = State.Closed;
     Closed();
     wallet.transfer(this.balance);
   }
 
-  function enableRefunds() public onlyOwner {
+  function enableRefunds() onlyOwner public {
     require(state == State.Active);
     state = State.Refunding;
     RefundsEnabled();

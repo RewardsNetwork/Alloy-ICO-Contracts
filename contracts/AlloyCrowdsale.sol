@@ -29,7 +29,7 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
     // Array that stores the different bonuses during the crowdsale
     BonusSlab[3] internal slabs;
 
-    function AlloyCrowdsale(address _tokenAddress, uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, address _refund, uint256 _cap, uint256 _goal) RefundableCrowdsale(_goal, _refund) CappedCrowdsale(_cap) Crowdsale(_tokenAddress, _startTime, _endTime, _rate, _wallet) {
+    function AlloyCrowdsale(address _tokenAddress, uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, uint256 _cap, uint256 _goal) RefundableCrowdsale(_goal) CappedCrowdsale(_cap) Crowdsale(_tokenAddress, _startTime, _endTime, _rate, _wallet) {
         // Initialize the bonus slabs
         slabs[0]= BonusSlab({starts: _startTime, ends: _startTime + 3 minutes, rate: _rate.add(_rate.div(10))});
         slabs[1]= BonusSlab({starts: _startTime + 3 minutes, ends: _startTime + 7 minutes, rate: _rate.add(_rate.div(20))});

@@ -14,16 +14,13 @@ module.exports = function(deployer, network, accounts) {
     // Multisigned Crowdsale wallet
     const wallet = '0x000862d3b8FaAa1d3a89Ae21F88Ba70426c67Cc0'
 
-    // Refund wallet
-    const refund_wallet = '0x000862d3b8FaAa1d3a89Ae21F88Ba70426c67Cc0'
-
     // Hardcap
     const cap = web3.toWei(86956 - 17391, "ether")
 
     // Softcap
     const goal = web3.toWei(10000, "ether")
 
-    deployer.deploy(AlloyCrowdsale, ALLOY_TOKEN_ADDRESS, startTime, endTime, rate, wallet, refund_wallet, cap, goal);
+    deployer.deploy(AlloyCrowdsale, ALLOY_TOKEN_ADDRESS, startTime, endTime, rate, wallet, cap, goal);
 
     console.log("Sale Starts at : " + startTime);
     console.log("Sale Ends at : " + endTime);

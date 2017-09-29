@@ -9,9 +9,7 @@ Please reach us at bounty[at]rewards.network for any additional details
 
 Submit your bugs or finding under the [Issues](https://github.com/codemojo-dr/Alloy-ICO-Contracts/issues) tab
 
-If you have a fix for the bug, please send us a [pull request](https://github.com/codemojo-dr/Alloy-ICO-Contracts/pulls) 
-
-This helps us track the bugs &amp; fixes submitted by you.
+If you have a fix for the bug, please send us a [pull request](https://github.com/codemojo-dr/Alloy-ICO-Contracts/pulls) under the issue you created, this helps us track the bugs &amp; fixes submitted by you.
 
 ## Test cases
 

@@ -51,20 +51,12 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
      * Gets a particular bonus slab
      */
     function getBonusSlab(uint256 slabIndex) public constant returns(uint256 startTime, uint256 endTime, uint256 alloysPerEth){
-        require(slabIndex >= 0 && slabIndex < slabs.length);
-        return (slabs[slabIndex].starts, slabs[slabIndex].ends, slabs[slabIndex].rate);
-    }
-
-    /**
-     * Gets the next available bonus
-     */
-    function nextSpecialBonus() public constant returns (uint256 endsIn, uint256 alloysPerEther) {
-        for(uint i = 0; i < slabs.length; i++){
-            if(now >= slabs[i].starts && now <= slabs[i].ends) {
-                return (slabs[i].ends, slabs[i].rate);
-            }
+        // No need to verify slabIndex >= 0, function only accepts uint so is redundant
+        if(slabIndex >= slabs.length) {
+            return (slabs[slabs.length-1].ends, endTime, rate);
         }
-        return (endTime, rate);
+        
+        return (slabs[slabIndex].starts, slabs[slabIndex].ends, slabs[slabIndex].rate);
     }
 
     /**
@@ -78,7 +70,7 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
         require(weiAmount >= minimumWeiRequired);
 
         uint alloysPerEther;
-        (, alloysPerEther) =  nextSpecialBonus();
+        (, , alloysPerEther) = getBonusSlab();
 
         // calculate token amount to be created
         uint256 tokens = weiAmount.mul(alloysPerEther);

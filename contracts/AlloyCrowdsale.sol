@@ -31,9 +31,9 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
 
     function AlloyCrowdsale(address _tokenAddress, uint256 _startTime, uint256 _endTime, uint256 _rate, address _wallet, uint256 _cap, uint256 _goal) RefundableCrowdsale(_goal) CappedCrowdsale(_cap) Crowdsale(_tokenAddress, _startTime, _endTime, _rate, _wallet) {
         // Initialize the bonus slabs
-        slabs[0]= BonusSlab({starts: _startTime, ends: _startTime + 3 minutes, rate: _rate.add(_rate.div(10))});
-        slabs[1]= BonusSlab({starts: _startTime + 3 minutes, ends: _startTime + 7 minutes, rate: _rate.add(_rate.div(20))});
-        slabs[2]= BonusSlab({starts: _startTime + 7 minutes, ends: _startTime + 14 minutes, rate: _rate.add(_rate.div(40))});
+        slabs[0]= BonusSlab({starts: _startTime, ends: _startTime + 3 days, rate: _rate.add(_rate.div(10))});
+        slabs[1]= BonusSlab({starts: _startTime + 3 days, ends: _startTime + 7 days, rate: _rate.add(_rate.div(20))});
+        slabs[2]= BonusSlab({starts: _startTime + 7 days, ends: _startTime + 14 days, rate: _rate.add(_rate.div(40))});
     }
 
     /**

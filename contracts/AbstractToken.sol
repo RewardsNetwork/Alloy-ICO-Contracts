@@ -7,8 +7,8 @@ pragma solidity ^0.4.11;
  */
 contract AbstractToken {
 
-    function mint(address _to, uint256 _amount) returns (bool);
-    function transferOwnership(address newOwner);
-    function finishMinting() returns (bool);
+    function mint(address _to, uint256 _amount) public returns (bool);
+    function transferOwnership(address newOwner) public;
+    function finishMinting() public returns (bool);
 
 }

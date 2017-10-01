@@ -39,7 +39,7 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
     /**
      * Lets the owner update bonus slabs
      */
-    function updateBonusSlab(uint256 slabIndex, uint256 startTime, uint256 endTime, uint256 rate) public onlyOwner {
+    function updateBonusSlab(uint256 slabIndex, uint256 startTime, uint256 endTime, uint256 rate) external onlyOwner {
         require(slabIndex >= 0 && slabIndex < slabs.length);
         require(endTime > startTime);
         require(rate > 0);
@@ -50,7 +50,7 @@ contract AlloyCrowdsale is Ownable, Destructible, Pausable, RefundableCrowdsale,
     /**
      * Gets a particular bonus slab
      */
-    function getBonusSlab(uint256 slabIndex) public constant returns(uint256 startTime, uint256 endTime, uint256 alloysPerEth){
+    function getBonusSlab(uint256 slabIndex) external constant returns(uint256 startTime, uint256 endTime, uint256 alloysPerEth){
         require(slabIndex >= 0 && slabIndex < slabs.length);
         return (slabs[slabIndex].starts, slabs[slabIndex].ends, slabs[slabIndex].rate);
     }

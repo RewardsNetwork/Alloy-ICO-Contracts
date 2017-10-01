@@ -10,10 +10,9 @@ import './token/VestedToken.sol';
  */
 contract AlloyToken is MintableToken, VestedToken {
 
-    string public name = 'ALLOY';
-    string public symbol = 'ALLOY';
-    uint public decimals = 18;
-    uint256 public INITIAL_SUPPLY = 0;
+    string constant public name = 'ALLOY';
+    string constant public symbol = 'ALLOY';
+    uint constant public decimals = 18;
 
     function AlloyToken(){
 

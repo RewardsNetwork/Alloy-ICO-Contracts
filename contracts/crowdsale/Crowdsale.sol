@@ -107,15 +107,15 @@ contract Crowdsale is MinimumValueTransfer {
   }
 
   // Allows the Owner to run any emergency updates on the time line
-  function updateCrowdsaleTimeline(uint256 newStartTime, uint256 newEndTime) onlyOwner public {
+  function updateCrowdsaleTimeline(uint256 newStartTime, uint256 newEndTime) onlyOwner external {
     require (newStartTime > 0 && newEndTime > newStartTime);
     startTime = newStartTime;
     endTime = newEndTime;
   }
 
   // Gets the Human readable progress for the current crowsale timeline in %
-  function crowdsaleProgress() public constant returns(uint256){
-    return now.sub(startTime).mul(100).div(endTime.sub(startTime));
+  function crowdsaleProgress() external constant returns(uint256){
+    return now > endTime ? 100: now.sub(startTime).mul(100).div(endTime.sub(startTime));
   }
 
   // Transfers the Token ownership

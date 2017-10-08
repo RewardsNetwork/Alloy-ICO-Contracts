@@ -6,11 +6,11 @@ import './token/VestedToken.sol';
 /**
  * @title AlloyToken
  * @dev AlloyToken is the original token being offered in both pre & main token sale.
- * This is Mintable, Finalizable, Has a maximum minting of 100mn.
+ * This is Mintable, Finalizable, Has a maximum supply of 100mn.
  */
 contract AlloyToken is MintableToken, VestedToken {
 
-    string constant public name = 'ALLOY';
+    string constant public name = 'Alloy';
     string constant public symbol = 'ALLOY';
     uint constant public decimals = 18;
 
